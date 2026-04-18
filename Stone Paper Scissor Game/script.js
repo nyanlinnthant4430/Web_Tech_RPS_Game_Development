@@ -124,12 +124,12 @@ function playGame(userChoice) {
     /* ========================
        MATCH RESULT CHECK
     ======================== */
-    if (userScore === maxWins) {
-        setTimeout(() => {
-            showPopup("🎉 You Won The Game!", "img/man.png");
-            saveScoreAuto();   // ✅ ONLY when user wins
-        }, 2000);
-    }
+if (userScore === maxWins) {
+    setTimeout(() => {
+        showPopup("🎉 You Won The Game!", "img/man.png");
+        saveScore();   // ✅ ONLY here
+    }, 2000);
+}
 
     if (computerScore === maxWins) {
         setTimeout(() => {
@@ -229,49 +229,43 @@ function showSaveMessage() {
 /* ========================
    LEADERBOARD
 ======================== */
+/* ================= LEADERBOARD ================= */
+function saveScore() {
+    let name = document.getElementById("playerName").value.trim();
+    if (!name) return;
+
+    localStorage.setItem("playerName", name);
+
+    let existing = leaderboard.find(p => p.name === name);
+
+    if (existing) {
+        existing.score++;
+    } else {
+        leaderboard.push({ name, score: 1 });
+    }
+
+leaderboard.sort((a, b) => b.score - a.score);
+
+// keep top 5 but allow equal scores
+if (leaderboard.length > 5) {
+    let minScore = leaderboard[4].score;
+    leaderboard = leaderboard.filter(p => p.score >= minScore);
+}
+
+    localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+
+    displayLeaderboard();
+}
+
 function displayLeaderboard() {
     let list = document.getElementById("leaderboardList");
     list.innerHTML = "";
 
     let medals = ["🥇", "🥈", "🥉"];
 
-    leaderboard.forEach((player, index) => {
+    leaderboard.forEach((p, i) => {
         let li = document.createElement("li");
-        let medal = medals[index] || "🎮";
-
-        li.innerHTML = `
-            <span>${medal} ${player.name}</span>
-            <span>${player.score}</span>
-        `;
-
+        li.innerHTML = `${medals[i] || "🎮"} ${p.name} - ${p.score}`;
         list.appendChild(li);
     });
-}
-
-/* ========================
-   AUTO SAVE (FIXED)
-======================== */
-function saveScoreAuto() {
-    let nameInput = document.getElementById("playerName");
-
-    if (!nameInput || nameInput.value.trim() === "") return;
-
-    let name = nameInput.value.trim();
-
-    let existing = leaderboard.find(p => p.name === name);
-
-    if (existing) {
-        existing.score += 1;   // ✅ increase wins
-    } else {
-        leaderboard.push({
-            name: name,
-            score: 1
-        });
-    }
-
-    leaderboard.sort((a, b) => b.score - a.score);
-    leaderboard = leaderboard.slice(0, 5);
-
-    localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-    displayLeaderboard();
 }
