@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Play Game | Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ICON LIBRARY -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="logo">🎮 RPS Battle</div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="game.html" class="active">Play Game</a>
+    <a href="rules.html">How to Play</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="game-section">
+
+<h1 class="arena-title">Battle Arena</h1>
+
+<div class="scoreboard round-box">
+
+<div class="player-score">
+<img src="img/man.png" class="icon">
+<span id="userScore">0</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="player-score">
+<img src="img/robot.png" class="icon">
+<span id="computerScore">0</span>
+</div>
+
+</div>
+
+
+
+<div class="battle round-box">
+<img id="userImg" src="img/rock-rotate-right.png" class="battle-img">
+<img id="computerImg" src="img/rock-rotate.png" class="battle-img">
+</div>
+
+<div class="choices">
+<img src="img/rock-rotate-right.png" onclick="playGame('rock')" class="choice">
+<img src="img/paper-rotate-right.png" onclick="playGame('paper')" class="choice">
+<img src="img/scissors-rotate-right.png" onclick="playGame('scissors')" class="choice">
+</div>
+
+<h2 id="resultText" class="result-text">Choose your move</h2>
+
+<div class="leaderboard-section round-box">
+
+    <div class="leaderboard-title">
+        🏆 Leaderboard
+    </div>
+
+   <div class="input-row">
+  <input type="text" id="playerName" placeholder="Enter your name">
+</div>
+
+    <ul id="leaderboardList"></ul>
+
+</div>
+
+<div class="game-buttons">
+  <button onclick="resetGame()" class="btn">Reset Game</button>
+  <button onclick="openSettings()" class="btn settings-btn">Game Settings</button>
+</div>
+
+<!-- MUSIC ICON BUTTON -->
+<button onclick="toggleMusic()" class="music-btn">
+<i id="musicIcon" class="fa-solid fa-volume-high"></i>
+</button>
+
+</section>
+
+
+<div id="popup" class="popup">
+<div class="popup-box">
+<h2 id="popupText"></h2>
+<button onclick="closePopup()" class="btn">Play Again</button>
+</div>
+</div>
+
+<div id="settingsPopup" class="popup">
+  <div class="popup-box">
+
+    <h2>Game Settings</h2>
+
+    <label>Difficulty:</label><br>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium" selected>Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <br><br>
+
+    <label>Game Mode:</label><br>
+    <select id="gameMode">
+      <option value="3">Best of 3</option>
+      <option value="5" selected>Best of 5</option>
+      <option value="7">Best of 7</option>
+    </select>
+
+    <br><br>
+
+    <br><br>
+
+<label>Volume:</label><br>
+<input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.3">
+
+
+    <div class="settings-buttons">
+  <button onclick="saveSettings()" class="btn">Save</button>
+  <button onclick="closeSettings()" class="btn cancel-btn">Cancel</button>
+</div>
+
+  </div>
+</div>
+
+<div id="saveMessage" class="save-message">Settings Saved ✅</div>
+
+<footer class="site-footer">
+<p class="footer-text">© 2026 Rock Paper Scissors | Created by Nyan Linn Thant</p>
+</footer>
+
+
+<!-- AUDIO FILES -->
+<audio id="bgMusic" src="sounds/music.wav" loop></audio>
+<audio id="clickSound" src="sounds/click.wav"></audio>
+<audio id="winSound" src="sounds/win.wav"></audio>
+<audio id="loseSound" src="sounds/lose.wav"></audio>
+<audio id="drawSound" src="sounds/draw.wav"></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
