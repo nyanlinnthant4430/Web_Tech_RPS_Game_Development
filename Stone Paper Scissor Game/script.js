@@ -9,6 +9,8 @@ let difficulty = "medium";
 let maxWins = 3;
 let volume = 0.3;
 
+
+
 let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
 
 /* ========================
@@ -268,4 +270,24 @@ function displayLeaderboard() {
         li.innerHTML = `${medals[i] || "🎮"} ${p.name} - ${p.score}`;
         list.appendChild(li);
     });
+}
+
+let savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+
+    let btn = document.querySelector(".theme-btn");
+
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+        btn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "dark");
+        btn.textContent = "🌙";
+    }
 }

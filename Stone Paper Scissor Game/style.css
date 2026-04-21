@@ -807,3 +807,55 @@ select option {
 
     margin-bottom: 20px;
 }
+
+
+/*/* ===== LIGHT MODE ===== */
+/* smooth transition */
+body {
+    transition: background 0.4s, color 0.4s;
+}
+
+/* LIGHT MODE */
+body.light-mode {
+    background: linear-gradient(135deg, #e6f7ff, #ffffff);
+    color: #111;
+}
+
+/* header */
+body.light-mode .site-header {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+}
+
+/* cards */
+body.light-mode .round-box,
+body.light-mode .leaderboard-section {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    color: #111;
+}
+
+/* leaderboard items */
+body.light-mode #leaderboardList li {
+    background: rgba(0,0,0,0.05);
+    color: #111;
+}
+
+/* input */
+body.light-mode #playerName {
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+}
+
+/* button style (better look) */
+.theme-btn {
+    margin-left: 15px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #00f7ff, #ff00c8);
+    color: white;
+    font-size: 16px;
+}
