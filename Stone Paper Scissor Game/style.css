@@ -810,52 +810,272 @@ select option {
 
 
 /*/* ===== LIGHT MODE ===== */
-/* smooth transition */
+/* ===== LIGHT MODE ===== */
 body {
-    transition: background 0.4s, color 0.4s;
+    transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* LIGHT MODE */
 body.light-mode {
-    background: linear-gradient(135deg, #e6f7ff, #ffffff);
+    background: linear-gradient(135deg, #eaf8ff, #ffffff);
     color: #111;
+}
+
+/* remove dark overlay */
+body.light-mode::before {
+    background: rgba(255,255,255,0.25);
 }
 
 /* header */
 body.light-mode .site-header {
     background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+body.light-mode .logo {
+    color: #0077ff;
+    text-shadow: none;
+}
+
+/* nav */
+body.light-mode .nav-links a {
+    color: #222;
+}
+
+body.light-mode .nav-links a:hover {
+    color: #0077ff;
+    text-shadow: none;
+}
+
+body.light-mode .nav-links a.active {
+    color: #ff0088;
+    text-shadow: none;
 }
 
 /* cards */
 body.light-mode .round-box,
-body.light-mode .leaderboard-section {
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(10px);
+body.light-mode .leaderboard-section,
+body.light-mode .popup-box,
+body.light-mode .content-container {
+    background: rgba(255,255,255,0.75);
     color: #111;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    backdrop-filter: blur(12px);
 }
 
-/* leaderboard items */
-body.light-mode #leaderboardList li {
-    background: rgba(0,0,0,0.05);
-    color: #111;
+/* titles */
+body.light-mode .arena-title,
+body.light-mode .content-title,
+body.light-mode .footer-text,
+body.light-mode .result-text {
+    -webkit-text-fill-color: unset;
+    background: none;
+    color: #0077ff;
+    text-shadow: none;
 }
 
-/* input */
-body.light-mode #playerName {
-    background: #fff;
-    color: #000;
+/* scoreboard text */
+body.light-mode .scoreboard,
+body.light-mode .vs {
+    color: #111;
+    text-shadow: none;
+}
+
+/* inputs */
+body.light-mode input,
+body.light-mode select {
+    background: white;
+    color: #111;
     border: 1px solid #ccc;
 }
 
-/* button style (better look) */
-.theme-btn {
-    margin-left: 15px;
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(45deg, #00f7ff, #ff00c8);
+body.light-mode input::placeholder {
+    color: #777;
+}
+
+/* leaderboard list */
+body.light-mode #leaderboardList li {
+    background: #f5f8ff;
+    color: #111;
+    border: 1px solid #e0e0e0;
+}
+
+/* buttons */
+body.light-mode .btn,
+body.light-mode .theme-btn {
+    background: linear-gradient(45deg, #00bfff, #ff4da6);
     color: white;
-    font-size: 16px;
+}
+
+/* music button */
+body.light-mode .music-btn {
+    background: white;
+    color: #111;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* footer */
+body.light-mode .site-footer {
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.08);
+}
+
+/* ===== LIGHT MODE FIX FOR ABOUT + RULES ===== */
+
+/* About page text */
+body.light-mode .about-project .content-text,
+body.light-mode .about-project .content-text li {
+    color: #111 !important;
+}
+
+/* Rules page text */
+body.light-mode .play-rules,
+body.light-mode .play-rules li {
+    color: #111 !important;
+}
+
+/* Neon check icons */
+body.light-mode .about-project .content-text li::before,
+body.light-mode .play-rules li::before {
+    color: #0077ff;
+    text-shadow: none;
+}
+
+/* Titles */
+body.light-mode .content-title {
+    color: #0077ff;
+    background: none;
+    -webkit-text-fill-color: unset;
+}
+
+/* Container */
+body.light-mode .about-project .content-container,
+body.light-mode .how-to-play .content-container {
+    background: rgba(255,255,255,0.82);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ===== LIGHT MODE FIX FOR INDEX / GAME PAGE ===== */
+
+/* Main texts */
+body.light-mode .arena-title,
+body.light-mode .result-text,
+body.light-mode .leaderboard-section h3,
+body.light-mode .scoreboard,
+body.light-mode .vs,
+body.light-mode #userScore,
+body.light-mode #computerScore {
+    color: #111 !important;
+    text-shadow: none !important;
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+}
+
+/* Title special color */
+body.light-mode .arena-title {
+    color: #0077ff !important;
+}
+
+/* Cards */
+body.light-mode .scoreboard,
+body.light-mode .battle,
+body.light-mode .leaderboard-section,
+body.light-mode .round-box {
+    background: rgba(255,255,255,0.82) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Input */
+body.light-mode #playerName {
+    background: white;
+    color: #111;
+    border: 1px solid #ccc;
+}
+
+body.light-mode #playerName::placeholder {
+    color: #777;
+}
+
+/* Leaderboard list */
+body.light-mode #leaderboardList li {
+    background: #f5f8ff;
+    color: #111;
+    border: 1px solid #e5e5e5;
+}
+
+/* Popup */
+body.light-mode .popup-box {
+    background: white;
+    color: #111;
+}
+
+/* Labels */
+body.light-mode .popup-box label,
+body.light-mode .popup-box h2 {
+    color: #0077ff;
+    text-shadow: none;
+    -webkit-text-fill-color: unset;
+    background: none;
+}
+
+/* Select */
+body.light-mode select {
+    background: white;
+    color: #111;
+    border: 1px solid #ccc;
+}
+
+body.light-mode select option {
+    background: white;
+    color: #111;
+}
+
+/* Music button */
+body.light-mode .music-btn {
+    background: white;
+    color: #111;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== PAGE TRANSITION ===== */
+
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.site-header,
+.game-section,
+.content,
+.site-footer,
+.hero {
+    animation: slideIn 0.6s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== LIGHT MODE INDEX TEXT FIX ===== */
+
+body.light-mode .hero-subtitle {
+    color: #333 !important;
+    opacity: 1 !important;
+    text-shadow: none;
+}
+
+body.light-mode .hero-title {
+    text-shadow: none;
 }
