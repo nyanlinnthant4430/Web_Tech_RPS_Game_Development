@@ -1079,3 +1079,31 @@ body.light-mode .hero-subtitle {
 body.light-mode .hero-title {
     text-shadow: none;
 }
+
+#musicHint {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+
+    padding: 8px 14px;
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+
+    opacity: 0.7;
+    backdrop-filter: blur(5px);
+
+    z-index: 999;
+    pointer-events: none;
+}
+
+body.light-mode #musicHint {
+    background: rgba(255, 255, 255, 0.6); /* light background */
+    color: #000; /* dark text */
+
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}

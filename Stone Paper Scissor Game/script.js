@@ -16,6 +16,25 @@ let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
 /* ========================
    INIT
 ======================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+    bgMusic = document.getElementById("bgMusic");
+    let hint = document.getElementById("musicHint");
+
+    document.body.addEventListener("click", function () {
+        if (soundEnabled && bgMusic.paused) {
+            bgMusic.volume = volume;
+            bgMusic.play();
+        }
+
+        if (hint) {
+            hint.style.display = "none"; // hide after click
+        }
+    }, { once: true });
+
+    displayLeaderboard();
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     bgMusic = document.getElementById("bgMusic");
     clickSound = document.getElementById("clickSound");
