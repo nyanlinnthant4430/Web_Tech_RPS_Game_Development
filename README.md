@@ -1,6 +1,6 @@
 ## 🎮 RPS Battle – Rock Paper Scissors Game
 
-A modern browser-based Rock Paper Scissors game built using HTML, CSS, and JavaScript. The game includes multiple modes, difficulty levels, animations, sound effects, and a local leaderboard system.
+A modern browser-based Rock Paper Scissors game built using HTML, CSS and JavaScript. The game includes multiple modes, difficulty levels, animations, sound effects and a local leaderboard system.
 
 ## 📋 Table of Contents
 
@@ -79,7 +79,8 @@ Dark mode uses a neon style and it is good for low light use. Light mode uses a 
 This feature improves usability and accessibility.
 
 ## File Structure
-STONE PAPER SCISSOR GAME FINAL DEVELOPMENT/
+STONE-PAPER-SCISSOR-GAME-FINAL-DEVELOPMENT/
+│
 ├── index.html        — Home page  
 ├── game.html         — Main game  
 ├── about.html        — About page  
@@ -91,24 +92,32 @@ STONE PAPER SCISSOR GAME FINAL DEVELOPMENT/
 │
 ├── img/              — Images  
 │   ├── background.jpg  
+│   ├── man.png  
+│   ├── robot.png  
 │   ├── rock.png  
 │   ├── paper.png  
 │   ├── scissors.png  
-│   ├── animations (rotate images)  
+│   ├── rock-rotate.png  
+│   ├── rock-rotate-right.png  
+│   ├── paper-rotate.png  
+│   ├── paper-rotate-right.png  
+│   ├── scissors-rotate.png  
+│   └── scissors-rotate-right.png  
 │
 ├── sounds/           — Audio files  
-    ├── click.mp3  
-    ├── draw.mp3  
-    ├── lose.wav  
-    ├── win.wav  
-    ├── music.mp3  
+│   ├── click.mp3  
+│   ├── draw.mp3  
+│   ├── lose.wav  
+│   ├── win.wav  
+│   └── music.mp3  
 
 ## Technologies Used
-HTML5 — structure
-CSS3 — design and animation
-JavaScript — game logic and interaction
-localStorage — saving scores and settings
-Author
+- HTML5 — structure
+- CSS3 — design and animation
+- JavaScript — game logic and interaction
+- localStorage — saving scores and settings
 
-Created as a university assignment project.
-Built using basic web technologies without frameworks.
+
+## Author
+- Created as a university assignment project.
+- Built using basic web technologies without frameworks.
