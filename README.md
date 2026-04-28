@@ -22,53 +22,51 @@ RPS Battle is an interactive Rock Paper Scissors game where players compete agai
 The design uses neon effects and glass style UI to create a modern game interface. The game also saves player scores using localStorage so users can view rankings and play again.
 
 ## How to Run
-Download or clone this project
-Open index.html in any web browser
-Start playing the game
-git clone https://github.com/yourusername/Web_Tech_RPS_Game_Development
-cd Web_Tech_RPS_Game_Development
-open index.html
+1. Download or clone this project
+2. Open index.html in any web browser
+3. Start playing the game
 
 The game runs fully in the browser and does not need installation or server.
 
 ## Game Modes
 |Mode      |	Description	                   |
 |----------|-----------------------------------|
-|Classic   |First to win 2 rounds wins the game|	          |
-|Ranked	   |First to win 3 rounds wins the game|
+|Best of 3 |First to win 2 rounds wins the game|	          |
+|Best of 5 |First to win 3 rounds wins the game|
 |Best of 7 |First to win 4 rounds wins the game|
 
 These modes give players more choice and flexibility.
 
 ## Difficulty Mode
-Easy
-Medium
-Hard 
+1. Easy
+2. Medium
+3. Hard 
 
 ## How to Play
-Select Rock or Paper or Scissors
-The computer will make a choice
-The result will be win or lose or draw
-The score updates after each round
-The game ends when the selected mode is completed
-Features
-Multiple game modes
-Easy and medium and hard difficulty levels
-Animated effects and smooth transitions
-Sound effects and background music
-Score tracking system
-Popup result display
-Responsive design
-Leaderboard System
+- Select Rock or Paper or Scissors
+- The computer will make a choice
+- The result will be win or lose or draw
+- The score updates after each round
+- The game ends when the selected mode is completed
+
+## Features
+- Multiple game modes
+- Easy and medium and hard difficulty levels
+- Animated effects and smooth transitions
+- Sound effects and background music
+- Score tracking system
+- Popup result display
+- Responsive design
+- Leaderboard System
 
 The game includes a local leaderboard system using localStorage.
 
 ## How it works:
 
-Player name is saved when the game starts and user can enter their names.
-Scores are saved after each match
-Rankings are displayed based on performance
-Data stays saved in the browser
+- Player name is saved when the game starts and user can enter their names.
+- Scores are saved after each match
+- Rankings are displayed based on performance
+- Data stays saved in the browser
 
 This feature increases replay value and user engagement.
 
