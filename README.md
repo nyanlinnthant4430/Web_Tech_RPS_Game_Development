@@ -79,7 +79,7 @@ Dark mode uses a neon style and it is good for low light use. Light mode uses a 
 This feature improves usability and accessibility.
 
 ## File Structure
-STONE-PAPER-SCISSOR-GAME-FINAL-DEVELOPMENT/
+STONE-PAPER-SCISSOR-GAME-FINAL-DEVELOPMENT\
 │
 ├── index.html        — Home page  
 ├── game.html         — Main game  
