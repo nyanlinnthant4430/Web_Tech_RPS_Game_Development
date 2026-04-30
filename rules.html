@@ -1,50 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>How to Play</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play | Rock Paper Scissors</title>
+
   <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
+
 <body>
 
+<!-- ===================== NAVIGATION HEADER ===================== -->
 <header class="site-header">
   <div class="logo">🎮 RPS Battle</div>
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="game.html">Play Game</a>
-    <a href="rules.html"  class="active">How to Play</a>
+    <a href="rules.html" class="active">How to Play</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <button onclick="toggleTheme()" class="theme-btn">🌙</button>
   </nav>
 </header>
+<!-- ============================================================= -->
 
+
+<!-- ===================== RULES CONTENT ======================== -->
 <section class="content how-to-play">
   <div class="content-container">
-    
+
     <h1 class="content-title">How to Play</h1>
+
+    <!-- Step-by-step game rules -->
     <ul class="play-rules">
-      <li>Choose Rock or Paper or Scissors</li>
-      <li>The computer will choose automatically</li>
-      <li>Rock beats Scissors</li>
-      <li>Scissors beats Paper</li>
-      <li>Paper beats Rock</li>
-      <li>The result will show win or lose or draw</li>
-      <li>The score updates after each round</li>
-      <li>Best of 3 modes need to 2 points wins</li>
-      <li>Best of 5 modes need first to 3 points wins</li>
-      <li>Best of 7 modes need first to 4 points wins</li>
+      <li>Choose Rock, Paper, or Scissors to make your move</li>
+      <li>The computer will instantly pick its own move</li>
+      <li>✊ Rock beats ✂️ Scissors</li>
+      <li>✂️ Scissors beats 📄 Paper</li>
+      <li>📄 Paper beats ✊ Rock</li>
+      <li>The result shows as Win, Lose, or Draw each round</li>
+      <li>Scores update automatically after every round</li>
+      <li>🏆 Best of 3 — first player to <strong>2 wins</strong> takes the match</li>
+      <li>🏆 Best of 5 — first player to <strong>3 wins</strong> takes the match</li>
+      <li>🏆 Best of 7 — first player to <strong>4 wins</strong> takes the match</li>
+      <li>Enter your name before playing to save your score to the Leaderboard</li>
     </ul>
 
   </div>
 </section>
+<!-- ============================================================= -->
 
+
+<!-- ===================== FOOTER ============================== -->
 <footer class="site-footer">
   <p class="footer-text">© 2026 Rock Paper Scissors | Created by Nyan Linn Thant</p>
 </footer>
-<audio id="bgMusic" src="sounds/music.mp3" loop></audio>
+<!-- ============================================================= -->
 
-<div id="musicHint">🔊 Click anywhere to play music</div>
+<audio id="bgMusic" src="sounds/music.mp3" loop></audio>
+<div id="musicHint">🔊 Click anywhere to start music</div>
+
 </body>
 </html>

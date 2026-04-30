@@ -1,37 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | Rock Paper Scissors</title>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Game logic (defer so DOM is ready before script runs) -->
+  <script src="script.js" defer></script>
 </head>
+
 <body>
 
+<!-- ===================== NAVIGATION HEADER ===================== -->
 <header class="site-header">
   <div class="logo">🎮 RPS Battle</div>
   <nav class="nav-links">
-    <a href="index.html"  class="active">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="game.html">Play Game</a>
     <a href="rules.html">How to Play</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <!-- Theme toggle: switches dark/light mode and saves preference -->
     <button onclick="toggleTheme()" class="theme-btn">🌙</button>
   </nav>
 </header>
+<!-- ============================================================= -->
 
+
+<!-- ===================== HERO SECTION ========================= -->
+<!-- Full-screen landing section with title, tagline, and play button -->
 <section class="hero">
   <h1 class="hero-title">RPS Battle</h1>
   <p class="hero-subtitle">Challenge the computer in an exciting battle!</p>
   <a href="game.html" class="btn">Start Playing</a>
 </section>
+<!-- ============================================================= -->
 
-<div id="musicHint">🔊 Click anywhere to play music</div>
 
+<!-- ===================== FOOTER ============================== -->
 <footer class="site-footer">
   <p class="footer-text">© 2026 Rock Paper Scissors | Created by Nyan Linn Thant</p>
 </footer>
+<!-- ============================================================= -->
 
+
+<!-- Background music (starts on first user click, handled in script.js) -->
 <audio id="bgMusic" src="sounds/music.mp3" loop></audio>
+
+<!-- Shown until user clicks for the first time -->
+<div id="musicHint">🔊 Click anywhere to start music</div>
+
 </body>
 </html>

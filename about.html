@@ -1,50 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>About</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Rock Paper Scissors</title>
+
   <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
+
 <body>
 
+<!-- ===================== NAVIGATION HEADER ===================== -->
 <header class="site-header">
   <div class="logo">🎮 RPS Battle</div>
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="game.html">Play Game</a>
     <a href="rules.html">How to Play</a>
-    <a href="about.html"  class="active">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="contact.html">Contact</a>
     <button onclick="toggleTheme()" class="theme-btn">🌙</button>
   </nav>
 </header>
+<!-- ============================================================= -->
 
 
+<!-- ===================== ABOUT CONTENT ======================== -->
 <section class="content about-project">
   <div class="content-container">
+
     <h1 class="content-title">About This Project</h1>
+
+    <!-- Project description cards -->
     <ul class="content-text">
-    <li>Inspired by one of the most classic hand games in the world — a game we all played as kids to settle friendly arguments and share laughs.</li>
+      <li>Inspired by one of the most classic hand games in the world — a game we all played as kids to settle friendly arguments and share laughs.</li>
+      <li>A simple idea that carries excitement, strategy, and surprise in every round.</li>
+      <li>Created to bring the same joy into the digital world — fun, interactive, and available anytime, anywhere.</li>
+      <li>Whether you play to pass the time, challenge friends, or test your luck against the computer, every click brings a new chance to win.</li>
+      <li>Built with passion for creativity, simplicity, and fun — because great games don't have to be complicated.</li>
+      <li>Sometimes the best experiences come from the simplest ideas: Rock, Paper, and Scissors.</li>
+    </ul>
 
-    <li>A simple idea that carries excitement, strategy, and surprise in every round.</li>
-
-    <li>Created to bring the same joy into the digital world — fun, interactive, and available anytime, anywhere.</li>
-
-    <li>Whether you play to pass the time, challenge friends, or test your luck against the computer, every click brings a new chance to win.</li>
-
-    <li>Built with passion for creativity, simplicity, and fun — because great games don’t have to be complicated.</li>
-
-    <li>Sometimes the best experiences come from the simplest ideas: Rock, Paper, and Scissors.</li>
-</ul>
-    
+  </div>
 </section>
+<!-- ============================================================= -->
 
+
+<!-- ===================== FOOTER ============================== -->
 <footer class="site-footer">
   <p class="footer-text">© 2026 Rock Paper Scissors | Created by Nyan Linn Thant</p>
 </footer>
+<!-- ============================================================= -->
 
 <audio id="bgMusic" src="sounds/music.mp3" loop></audio>
-<div id="musicHint">🔊 Click anywhere to play music</div>
+<div id="musicHint">🔊 Click anywhere to start music</div>
+
 </body>
 </html>

@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Play Game | Rock Paper Scissors</title>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- ICON LIBRARY -->
+  <!-- Icon library (Font Awesome 6) — used for the speaker / mute icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
+
+  <!-- Google Fonts: Orbitron for headings, Poppins for body text -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!--
+    IMPORTANT: script.js is loaded in <head> with defer so it
+    doesn't block rendering and runs after DOMContentLoaded fires.
+    (Original used no defer, which could cause "element not found" errors.)
+  -->
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
+<!-- ===================== NAVIGATION HEADER ===================== -->
 <header class="site-header">
   <div class="logo">🎮 RPS Battle</div>
 
@@ -21,125 +34,161 @@
     <a href="rules.html">How to Play</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <!-- Theme toggle button: switches between dark 🌙 and light ☀️ mode -->
     <button onclick="toggleTheme()" class="theme-btn">🌙</button>
   </nav>
 </header>
+<!-- ============================================================= -->
 
+
+<!-- ===================== MAIN GAME SECTION ==================== -->
 <section class="game-section">
 
-<h1 class="arena-title">Battle Arena</h1>
+  <h1 class="arena-title">Battle Arena</h1>
 
-<div class="scoreboard round-box">
+  <!-- SCOREBOARD — shows player icon, score, VS, computer icon, score -->
+  <div class="scoreboard round-box">
+    <div class="player-score">
+      <img src="img/man.png" class="icon" alt="Player">
+      <span id="userScore">0</span>
+    </div>
 
-<div class="player-score">
-<img src="img/man.png" class="icon">
-<span id="userScore">0</span>
-</div>
+    <div class="vs">VS</div>
 
-<div class="vs">VS</div>
+    <div class="player-score">
+      <img src="img/robot.png" class="icon" alt="Computer">
+      <span id="computerScore">0</span>
+    </div>
+  </div>
+  <!-- END SCOREBOARD -->
 
-<div class="player-score">
-<img src="img/robot.png" class="icon">
-<span id="computerScore">0</span>
-</div>
+  <!-- BATTLE DISPLAY — images update via JS when a move is made -->
+  <div class="battle round-box">
+    <img id="userImg"     src="img/rock-rotate-right.png" class="battle-img" alt="Player's move">
+    <img id="computerImg" src="img/rock-rotate.png"       class="battle-img" alt="Computer's move">
+  </div>
+  <!-- END BATTLE DISPLAY -->
 
-</div>
+  <!-- CHOICE BUTTONS — clicking calls playGame() with the chosen move -->
+  <div class="choices">
+    <img src="img/rock-rotate-right.png"     onclick="playGame('rock')"     class="choice" alt="Rock"     title="Rock">
+    <img src="img/paper-rotate-right.png"    onclick="playGame('paper')"    class="choice" alt="Paper"    title="Paper">
+    <img src="img/scissors-rotate-right.png" onclick="playGame('scissors')" class="choice" alt="Scissors" title="Scissors">
+  </div>
+  <!-- END CHOICE BUTTONS -->
 
+  <!-- RESULT TEXT — updated each round by JS (e.g. "You Win This Round!") -->
+  <h2 id="resultText" class="result-text">Choose your move</h2>
 
+  <!-- LEADERBOARD — persisted in localStorage; only winners are saved -->
+  <div class="leaderboard-section round-box">
+    <h3>🏆 Leaderboard</h3>
+    <!-- Player enters their name here; it's saved across sessions -->
+    <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
+    <ul id="leaderboardList"></ul>
+  </div>
+  <!-- END LEADERBOARD -->
 
-<div class="battle round-box">
-<img id="userImg" src="img/rock-rotate-right.png" class="battle-img">
-<img id="computerImg" src="img/rock-rotate.png" class="battle-img">
-</div>
+  <!-- ACTION BUTTONS -->
+  <div class="game-buttons">
+    <button onclick="resetGame()"   class="btn">Reset Game</button>
+    <button onclick="openSettings()" class="btn settings-btn">Game Settings</button>
+  </div>
+  <!-- END ACTION BUTTONS -->
 
-<div class="choices">
-<img src="img/rock-rotate-right.png" onclick="playGame('rock')" class="choice">
-<img src="img/paper-rotate-right.png" onclick="playGame('paper')" class="choice">
-<img src="img/scissors-rotate-right.png" onclick="playGame('scissors')" class="choice">
-</div>
-
-<h2 id="resultText" class="result-text">Choose your move</h2>
-
-<div class="leaderboard-section round-box">
-  <h3>🏆 Leaderboard</h3>
-  <input type="text" id="playerName" placeholder="Enter your name">
-  <ul id="leaderboardList"></ul>
-</div>
-
-<div class="game-buttons">
-  <button onclick="resetGame()" class="btn">Reset Game</button>
-  <button onclick="openSettings()" class="btn settings-btn">Game Settings</button>
-</div>
-
-<!-- MUSIC ICON BUTTON -->
-<button onclick="toggleMusic()" class="music-btn">
-<i id="musicIcon" class="fa-solid fa-volume-high"></i>
-</button>
+  <!-- MUSIC TOGGLE BUTTON — floating button in the corner -->
+  <button onclick="toggleMusic()" class="music-btn" title="Toggle music">
+    <i id="musicIcon" class="fa-solid fa-volume-high"></i>
+  </button>
 
 </section>
+<!-- ============================================================= -->
 
 
+<!-- ===================== MATCH END POPUP ====================== -->
+<!--
+  Shown when a player or the computer reaches maxWins.
+  Message and icon are injected by showPopup() in script.js.
+-->
 <div id="popup" class="popup">
-<div class="popup-box">
-<h2 id="popupText"></h2>
-<button onclick="closePopup()" class="btn">Play Again</button>
+  <div class="popup-box">
+    <h2 id="popupText"></h2>
+    <button onclick="closePopup()" class="btn">Play Again</button>
+  </div>
 </div>
-</div>
+<!-- ============================================================= -->
 
+
+<!-- ===================== SETTINGS POPUP ======================= -->
 <div id="settingsPopup" class="popup">
   <div class="popup-box">
 
-    <h2>Game Settings</h2>
+    <h2>⚙️ Game Settings</h2>
 
+    <!-- Difficulty selection: affects how the AI chooses its move -->
     <label>Difficulty:</label><br>
-<div class="select-wrapper">
-  <select id="difficulty">
-    <option value="easy">Easy</option>
-    <option value="medium" selected>Medium</option>
-    <option value="hard">Hard</option>
-  </select>
-</div>
+    <div class="select-wrapper">
+      <select id="difficulty">
+        <option value="easy">Easy   — fully random</option>
+        <option value="medium" selected>Medium — mixed strategy</option>
+        <option value="hard">Hard   — always counters you</option>
+      </select>
+    </div>
 
     <br><br>
 
+    <!-- Game mode: determines how many wins are needed to claim the match -->
     <label>Game Mode:</label><br>
     <select id="gameMode">
-      <option value="3">Best of 3</option>
-      <option value="5" selected>Best of 5</option>
-      <option value="7">Best of 7</option>
+      <option value="3">Best of 3 (first to 2)</option>
+      <option value="5" selected>Best of 5 (first to 3)</option>
+      <option value="7">Best of 7 (first to 4)</option>
     </select>
 
     <br><br>
 
-    <br><br>
-
-<label>Volume:</label><br>
-<input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.3">
-
+    <!-- Volume slider (0 = silent, 1 = max) -->
+    <label>Volume:</label><br>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.3">
 
     <div class="settings-buttons">
-  <button onclick="saveSettings()" class="btn">Save</button>
-  <button onclick="closeSettings()" class="btn cancel-btn">Cancel</button>
-</div>
+      <button onclick="saveSettings()"  class="btn">Save</button>
+      <button onclick="closeSettings()" class="btn cancel-btn">Cancel</button>
+    </div>
 
   </div>
 </div>
+<!-- ============================================================= -->
 
+
+<!-- ===================== SAVE TOAST ========================== -->
+<!-- Brief "Settings Saved ✅" notification — toggled by JS -->
 <div id="saveMessage" class="save-message">Settings Saved ✅</div>
+<!-- ============================================================ -->
 
+
+<!-- ===================== FOOTER ============================== -->
 <footer class="site-footer">
-<p class="footer-text">© 2026 Rock Paper Scissors | Created by Nyan Linn Thant</p>
+  <p class="footer-text">© 2026 Rock Paper Scissors | Created by Nyan Linn Thant</p>
 </footer>
+<!-- ============================================================ -->
 
 
-<!-- AUDIO FILES -->
-<audio id="bgMusic" src="sounds/music.mp3" loop></audio>
+<!-- ===================== AUDIO ELEMENTS ====================== -->
+<!--
+  All audio files are preloaded silently.
+  Playback is triggered by JavaScript — browsers require a user
+  gesture before audio can play, so music starts on first click.
+-->
+<audio id="bgMusic"    src="sounds/music.mp3" loop></audio>
 <audio id="clickSound" src="sounds/click.mp3"></audio>
-<audio id="winSound" src="sounds/win.wav"></audio>
-<audio id="loseSound" src="sounds/lose.wav"></audio>
-<audio id="drawSound" src="sounds/draw.mp3"></audio>
+<audio id="winSound"   src="sounds/win.wav"></audio>
+<audio id="loseSound"  src="sounds/lose.wav"></audio>
+<audio id="drawSound"  src="sounds/draw.mp3"></audio>
+<!-- ============================================================ -->
 
-<div id="musicHint">🔊 Click anywhere to play music</div>
+<!-- Prompt shown until the user clicks anywhere for the first time -->
+<div id="musicHint">🔊 Click anywhere to start music</div>
 
 </body>
 </html>

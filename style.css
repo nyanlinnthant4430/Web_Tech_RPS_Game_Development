@@ -1109,3 +1109,39 @@ body.light-mode #musicHint {
 }
 
 
+
+/* ============================================================
+   IMPROVEMENTS — added in v2.0
+   ============================================================ */
+
+/* Contact page: make email/phone into clickable styled links */
+.contact-link {
+    color: #00f5ff;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.contact-link:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}
+
+/* Leaderboard: style the "wins" label more clearly */
+#leaderboardList li strong {
+    color: #00f5ff;
+}
+
+/* Choices: show a pointer cursor and scale slightly on hover
+   so users know the images are clickable */
+.choice {
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+.choice:hover {
+    transform: scale(1.12);
+}
+
+/* Subtle disabled appearance when the game is over (gameOver flag) */
+.choices.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}

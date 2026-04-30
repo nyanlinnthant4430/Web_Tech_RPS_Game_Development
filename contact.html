@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Rock Paper Scissors</title>
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
+
 <body>
 
+<!-- ===================== NAVIGATION HEADER ===================== -->
 <header class="site-header">
   <div class="logo">🎮 RPS Battle</div>
   <nav class="nav-links">
@@ -15,23 +20,36 @@
     <a href="game.html">Play Game</a>
     <a href="rules.html">How to Play</a>
     <a href="about.html">About</a>
-    <a href="contact.html"  class="active">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
     <button onclick="toggleTheme()" class="theme-btn">🌙</button>
   </nav>
 </header>
+<!-- ============================================================= -->
 
+
+<!-- ===================== CONTACT CONTENT ====================== -->
 <section class="content contact-section">
   <div class="content-container">
+
     <h1 class="content-title">Contact</h1>
-    <p class="content-text">Email: www.nyan2002@gmail.com</p>
-    <p class="content-text">Phone: +959 443 095 514</p>
+
+    <!-- Developer contact details -->
+    <p class="content-text">📧 Email: <a href="mailto:www.nyan2002@gmail.com" class="contact-link">www.nyan2002@gmail.com</a></p>
+    <p class="content-text">📞 Phone: <a href="tel:+959443095514" class="contact-link">+959 443 095 514</a></p>
+
   </div>
 </section>
+<!-- ============================================================= -->
 
+
+<!-- ===================== FOOTER ============================== -->
 <footer class="site-footer">
   <p class="footer-text">© 2026 Rock Paper Scissors | Created by Nyan Linn Thant</p>
 </footer>
+<!-- ============================================================= -->
+
 <audio id="bgMusic" src="sounds/music.mp3" loop></audio>
-<div id="musicHint">🔊 Click anywhere to play music</div>
+<div id="musicHint">🔊 Click anywhere to start music</div>
+
 </body>
 </html>
