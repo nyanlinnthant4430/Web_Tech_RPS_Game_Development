@@ -1,26 +1,7 @@
-/* ============================================================
-   script.js — Rock Paper Scissors Game Logic
-   Author  : Nyan Linn Thant
-   Version : 2.0 (Improved)
-   ============================================================
-   TABLE OF CONTENTS
-   -----------------
-   1. Global State Variables
-   2. DOM Initialisation  (DOMContentLoaded)
-   3. Music / Sound Control
-   4. Core Game Logic    (playGame, getComputerChoice, determineWinner)
-   5. Animation Helpers
-   6. Round Result Handling & Match End
-   7. Popup (win / lose screen)
-   8. Game Reset
-   9. Settings (open / close / save)
-  10. Leaderboard (save, display)
-  11. Theme Toggle (dark / light mode)
-   ============================================================ */
+
 
 
 /* ============================================================
-   1. GLOBAL STATE VARIABLES
    Declared at the top level so every function can access them.
    ============================================================ */
 
@@ -40,7 +21,7 @@ let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
 
 
 /* ============================================================
-   2. DOM INITIALISATION
+    DOM INITIALISATION
    Waits for the full HTML to load before touching any elements.
    BUG FIX: Original code had two separate DOMContentLoaded
    listeners — bgMusic was assigned in both, creating a duplicate.
@@ -87,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ============================================================
-   3. MUSIC / SOUND CONTROL
+   MUSIC / SOUND CONTROL
    ============================================================ */
 
 /* Toggles the global mute state and updates the speaker icon.
@@ -121,7 +102,7 @@ function playSound(audioEl) {
 
 
 /* ============================================================
-   4. CORE GAME LOGIC
+   CORE GAME LOGIC
    ============================================================ */
 
 /* Main entry point — called by the rock / paper / scissors image buttons. */
@@ -193,7 +174,7 @@ function determineWinner(userChoice, computerChoice) {
 
 
 /* ============================================================
-   5. ANIMATION HELPERS
+   ANIMATION HELPERS
    ============================================================ */
 
 /* Swaps both battle images and re-triggers the CSS shake animation.
@@ -218,7 +199,7 @@ function updateBattleImages(userChoice, computerChoice) {
 
 
 /* ============================================================
-   6. ROUND RESULT HANDLING & MATCH END
+   ROUND RESULT HANDLING & MATCH END
    Updates scores and checks if someone has won the full match.
    ============================================================ */
 
@@ -263,7 +244,7 @@ function handleRoundResult(result) {
 
 
 /* ============================================================
-   7. POPUP — End-of-match overlay
+   POPUP — End-of-match overlay
    ============================================================ */
 
 function showPopup(message, icon) {
@@ -282,7 +263,7 @@ function closePopup() {
 
 
 /* ============================================================
-   8. GAME RESET
+  GAME RESET
    Clears all scores and state — called after a match ends
    or when the player clicks "Reset Game".
    ============================================================ */
@@ -304,7 +285,7 @@ function resetGame() {
 
 
 /* ============================================================
-   9. SETTINGS — open / close / save
+   SETTINGS — open / close / save
    ============================================================ */
 
 /* Blurs the game section and shows the settings overlay */
@@ -350,7 +331,7 @@ function showSaveMessage() {
 
 
 /* ============================================================
-  10. LEADERBOARD
+  LEADERBOARD
    Saves player win counts to localStorage and renders the list.
    Only the top 5 are kept, but ties at position 5 are all retained.
    ============================================================ */
@@ -413,7 +394,7 @@ function displayLeaderboard() {
 
 
 /* ============================================================
-  11. THEME TOGGLE — Dark / Light mode
+  THEME TOGGLE — Dark / Light mode
    Adds or removes the "light-mode" class on <body> and saves
    the preference so it persists across page loads.
    ============================================================ */
