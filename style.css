@@ -1145,3 +1145,363 @@ body.light-mode #musicHint {
     opacity: 0.45;
     pointer-events: none;
 }
+
+
+/* ============================================================
+   RESPONSIVE DESIGN — Mobile-first breakpoints
+   ============================================================ */
+
+/* ---- Tablet (≤768px) ---- */
+@media (max-width: 768px) {
+
+  /* HEADER: stack logo + nav */
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 20px;
+    gap: 10px;
+    border-radius: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+
+  .theme-btn {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  /* HERO */
+  .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  /* GAME SECTION */
+  .game-section {
+    padding: 20px 15px 40px;
+  }
+
+  .arena-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  /* SCOREBOARD */
+  .scoreboard {
+    font-size: 1.4rem;
+  }
+
+  .player-score .icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .scoreboard .vs {
+    font-size: 1.1rem;
+  }
+
+  /* ROUND BOXES */
+  .round-box {
+    padding: 18px 15px;
+    margin: 12px auto;
+    max-width: 95%;
+    border-radius: 16px;
+  }
+
+  /* BATTLE IMAGES */
+  .battle-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* CHOICE BUTTONS */
+  .choices {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .choice {
+    width: 65px;
+    height: 65px;
+  }
+
+  /* RESULT TEXT */
+  .result-text {
+    font-size: 1.3rem;
+  }
+
+  /* LEADERBOARD */
+  .leaderboard-section {
+    padding: 18px 15px;
+  }
+
+  #playerName {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .input-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .input-row .btn {
+    width: 100%;
+  }
+
+  #leaderboardList {
+    max-width: 100%;
+  }
+
+  /* SELECT WRAPPER */
+  .select-wrapper {
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  /* POPUP */
+  .popup-box {
+    width: 88%;
+    max-width: 360px;
+    margin: 100px auto;
+    padding: 30px 20px;
+  }
+
+  .popup-box h2 {
+    font-size: 1.4rem;
+  }
+
+  /* MUSIC BUTTON */
+  .music-btn {
+    top: auto;
+    bottom: 80px;
+    right: 15px;
+  }
+
+  /* ABOUT / RULES / CONTACT */
+  .about-project .content-container,
+  .how-to-play .content-container,
+  .contact-section .content-container {
+    margin: 20px 15px;
+    padding: 25px 20px;
+  }
+
+  .about-project .content-title,
+  .how-to-play .content-title,
+  .contact-section .content-title {
+    font-size: 2rem;
+  }
+
+  .about-project .content-text,
+  .play-rules {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    padding: 15px 10px;
+    margin-top: 20px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* ---- Small phones (≤480px) ---- */
+@media (max-width: 480px) {
+
+  .site-header {
+    padding: 10px 15px;
+  }
+
+  .site-header .logo {
+    font-size: 1.4rem;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .arena-title {
+    font-size: 1.6rem;
+  }
+
+  .scoreboard {
+    font-size: 1.2rem;
+  }
+
+  .battle-img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .choice {
+    width: 55px;
+    height: 55px;
+  }
+
+  .choices {
+    gap: 10px;
+  }
+
+  .result-text {
+    font-size: 1.1rem;
+  }
+
+  .popup-box {
+    margin: 70px auto;
+    padding: 25px 15px;
+  }
+
+  .leaderboard-title {
+    font-size: 20px;
+  }
+
+  .about-project .content-title,
+  .how-to-play .content-title,
+  .contact-section .content-title {
+    font-size: 1.6rem;
+  }
+
+  .game-buttons {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .game-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Save toast */
+  .save-message {
+    right: 10px;
+    bottom: 15px;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+  }
+}
+
+/* ---- Landscape phones ---- */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .popup-box {
+    margin: 30px auto;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+
+/* ============================================================
+   HAMBURGER MENU — hidden on desktop, shown on mobile
+   ============================================================ */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: 0.2s ease;
+  align-self: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+body.light-mode .hamburger {
+  color: #111;
+  border-color: rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px 20px;
+  }
+
+  .site-header .logo {
+    font-size: 1.4rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* nav hidden by default on mobile */
+  #mainNav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 8px;
+  }
+
+  /* when toggled open */
+  #mainNav.open {
+    display: flex;
+  }
+
+  #mainNav a,
+  #mainNav button {
+    width: 100%;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+}

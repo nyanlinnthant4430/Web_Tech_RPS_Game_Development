@@ -409,3 +409,20 @@ function toggleTheme() {
     if (btn) btn.textContent = isLightNow ? "☀️" : "🌙";
     localStorage.setItem("theme", isLightNow ? "light" : "dark");
 }
+
+/* ============================================================
+   HAMBURGER NAV TOGGLE — mobile responsive
+   ============================================================ */
+function toggleNav() {
+  const nav = document.getElementById('mainNav');
+  if (nav) nav.classList.toggle('open');
+}
+
+// Close nav when a link is clicked (single-page nav feel)
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.getElementById('mainNav');
+  if (!nav) return;
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+});
